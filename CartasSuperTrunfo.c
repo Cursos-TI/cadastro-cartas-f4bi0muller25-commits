@@ -1,4 +1,4 @@
-// Para esse exercicio, utilizei vários conceitos que eu tinha apredindo anteriormente e tambem pesquisei novos, com Structs.
+// Para esse exercicio., utilizei vários conceitos que eu tinha apredindo anteriormente e tambem pesquisei novos, com Structs.
 
 #include <stdio.h>
 #include <string.h>
