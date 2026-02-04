@@ -13,6 +13,7 @@ struct Cidade
     float area;
     float pib;
     int turismo;
+    float densidade, PibPerCapita;
 };
 
 // Procedimento para o letreiro
@@ -27,7 +28,7 @@ void letreiro(void)
 void lerCidade(struct Cidade *c)
 {
     char buffer[100];
-
+    
     printf("Estado (sigla A-H): ");
     fgets(buffer, sizeof(buffer), stdin);
     c->estado = buffer[0];
@@ -56,6 +57,9 @@ void lerCidade(struct Cidade *c)
     fgets(buffer, sizeof(buffer), stdin);
     sscanf(buffer, "%d", &c->turismo);
 
+    c->densidade = (float) c-> populacao / c->area;
+    c->PibPerCapita = (float) (c->pib ) / (c->populacao);
+
     printf("\n");
 }
 
@@ -70,6 +74,8 @@ void imprimirCidade(struct Cidade c, int numero)
     printf("Área (em km²): %.2f\n", c.area);
     printf("PIB (em milhões R$): %.2f\n", c.pib);
     printf("Índice de turismo (0-100): %d\n", c.turismo);
+    printf("\nDensidade populacional: %.2f habitantes/km²\n", c.densidade);
+    printf("PIB per capita: R$ %.2f\n", c.PibPerCapita);
     printf("----------------------------------------\n\n");
 }
 
@@ -102,4 +108,3 @@ int main(void)
 
     return 0;
 }
-
